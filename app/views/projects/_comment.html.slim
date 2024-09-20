@@ -1,0 +1,10 @@
+.relative.pb-8.flex.space-x-3
+  .flex-1.pt-1.5
+    p.text-sm.text-gray-500 = comment.content
+  .text-right.text-sm.whitespace-nowrap.text-gray-500
+    = comment.user.email
+    br
+    = time_ago_in_words(comment.created_at)
+    |  ago
+
+

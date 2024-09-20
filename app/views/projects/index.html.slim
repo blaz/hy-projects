@@ -1,0 +1,18 @@
+.bg-white.shadow.overflow-hidden.sm:rounded-md
+  ul.divide-y.divide-gray-200 role="list"
+    - @projects.each do |project|
+      = link_to project_path(project), class: "block hover:bg-gray-50"
+        li.px-4.py-4.sm:px-6
+          .flex.items-center.justify-between
+            p.text-sm.font-medium.text-indigo-600.truncate
+              = project.name
+            .ml-2.flex-shrink-0.flex
+              p.px-2.inline-flex.text-xs.leading-5.font-semibold.rounded-full.bg-green-100.text-green-800
+                = project.status.titleize
+          .mt-2.sm:flex.sm:justify-between
+            .sm:flex
+              p.flex.items-center.text-sm.text-gray-500
+                = pluralize(project.users.count, 'user')
+            .mt-2.flex.items-center.text-sm.text-gray-500.sm:mt-0
+              p
+                | Last updated #{time_ago_in_words(project.updated_at)} ago

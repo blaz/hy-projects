@@ -1,0 +1,13 @@
+.relative.pb-8.flex.space-x-3
+  .flex-1.pt-1.5
+    p.text-sm.text-gray-500
+      | Status changed from
+      span.font-medium = status_change.previous_status.titleize
+      |  to
+      span.font-medium = status_change.current_status.titleize
+  .text-right.text-sm.whitespace-nowrap.text-gray-500
+    = status_change.user.email
+    br
+    = time_ago_in_words(status_change.created_at)
+    |  ago
+
