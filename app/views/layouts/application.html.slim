@@ -34,9 +34,6 @@ html.h-full.bg-gray-100
                   = button_to "Logout", destroy_user_session_path, method: :delete, class: "rounded-md bg-gray-700 px-3 py-2 text-sm font-medium text-white hover:bg-gray-600"
                 - else
                   = link_to "Login", new_user_session_path, class: "rounded-md bg-gray-700 px-3 py-2 text-sm font-medium text-white hover:bg-gray-600"
-      header.bg-white.shadow
-        .mx-auto.max-w-7xl.px-4.py-6.sm:px-6.lg:px-8
-          h1.text-3xl.font-bold.tracking-tight.text-gray-900= content_for(:header) || "Projects"
       main
         .mx-auto.max-w-7xl.py-6.sm:px-6.lg:px-8
           = yield

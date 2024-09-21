@@ -6,7 +6,7 @@ class ProjectCommentsController < ApplicationController
     @comment = ProjectComment.new(comment_params)
     @comment.user = current_user
     @comment.project = @project
-    @comment.save!
+    @comment.save
 
     respond_to do |format|
       format.turbo_stream

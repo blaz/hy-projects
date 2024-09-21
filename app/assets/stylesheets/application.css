@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.timeline-content p {
+  margin-top: 0.5rem;
+}
+
+.form-errors {
+  color: red;
+}

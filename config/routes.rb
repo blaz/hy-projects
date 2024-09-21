@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root "projects#index"
 
   resources :projects, only: %i[index show] do
-    resource :comments, as: :project_comments, controller: :project_comments, only: %i[create]
+    resource :comments, controller: :project_comments, only: %i[create]
 
     member do 
       post :update_status

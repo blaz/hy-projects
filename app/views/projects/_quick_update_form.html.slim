@@ -1,0 +1,19 @@
+= form_for @project, url: update_status_project_path(@project), method: :post, class: 'mt-5', data: { turbo: true } do |f|
+  .flex.items-start.mb-4
+    .flex.items-center
+      = f.label :status, 'Project Status', class: 'pr-5 text-sm font-medium text-gray-700'
+      .w-48
+        = f.select( \
+          :status, \
+          Project::STATUSES.map { |s| [s.to_s.titleize, s] }, { prompt: 'Update status' }, \
+          class: 'ml-2 mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md', \
+          onChange: 'this.form.requestSubmit()')
+
+- @comment ||= ProjectComment.new
+= form_for [@project, @comment], url: project_comments_path(@project), class: 'mt-5', data: { controller: 'comment', turbo: true } do |f|
+  .w-full.sm:max-w-lg
+    = f.text_area :content, class: 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md h-20 md:h-22 lg:h-32 min-h-[3rem] max-h-32', placeholder: 'Add a comment...'
+  .mt-3.text-left.w-full.sm:max-w-lg
+    - if @comment.errors.any?
+      .form-errors= @comment.errors.full_messages.join(', ')
+    = f.submit 'Post Comment', class: 'inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'

@@ -1,10 +1,11 @@
-.relative.pb-8.flex.space-x-3
-  .flex-1.pt-1.5
-    p.text-sm.text-gray-500 = comment.content
-  .text-right.text-sm.whitespace-nowrap.text-gray-500
-    = comment.user.email
-    br
-    = time_ago_in_words(comment.created_at)
-    |  ago
-
-
+.timeline-item.border.border-gray-300.rounded-md.mb-4
+  .timeline-header.bg-gray-100.px-4.py-2.flex.justify-between.items-center.border-b.border-gray-300
+    .user-info.text-sm.text-gray-600
+      strong.font-medium= comment.user.email
+      span.text-gray-500
+        |  commented 
+        = time_ago_in_words(comment.created_at)
+        |  ago
+    = render 'projects/timeline_item_timestamp', timestamp: comment.created_at
+  .timeline-content.px-4.py-3.text-sm.text-gray-700
+    = simple_format(comment.content)

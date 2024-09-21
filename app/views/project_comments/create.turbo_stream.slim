@@ -1,0 +1,4 @@
+- if @comment.valid? && @comment.persisted?
+  = turbo_stream.prepend('project-timeline', partial: 'projects/comment', locals: { comment: @comment })
+  = @comment = ProjectComment.new
+= turbo_stream.update('project-quick-update-form', partial: 'projects/quick_update_form')

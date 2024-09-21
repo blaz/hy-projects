@@ -1,0 +1,3 @@
+= turbo_stream.update('project-header', partial: 'header')
+= turbo_stream.update('project-quick-update-form', partial: 'quick_update_form')
+= turbo_stream.prepend('project-timeline', partial: 'status_change', locals: { status_change: @status_change })
