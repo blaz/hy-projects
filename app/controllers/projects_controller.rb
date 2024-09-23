@@ -11,15 +11,14 @@ class ProjectsController < ApplicationController
   end
 
   def update_status
-    if @project.update(status: project_params[:status])
-      @status_change = ProjectStatusChange.create!(
-        previous_status: @project.status_previously_was,
-        current_status: project_params[:status],
-        user: current_user,
-        project: @project
-      )
-    end
-    
+    command = UpdateProjectStatus.call(
+      project: @project,
+      new_status: project_params[:status],
+      user: current_user
+    )
+
+    @status_change = command.status_change
+
     respond_to do |format|
       format.turbo_stream
     end

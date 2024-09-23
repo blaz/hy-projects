@@ -1,0 +1,7 @@
+example_id                                          | status | run_time        |
+--------------------------------------------------- | ------ | --------------- |
+./spec/units/update_project_status_spec.rb[1:1:1:1] | passed | 0.00494 seconds |
+./spec/units/update_project_status_spec.rb[1:1:1:2] | passed | 0.04477 seconds |
+./spec/units/update_project_status_spec.rb[1:1:2:1] | passed | 0.01602 seconds |
+./spec/units/update_project_status_spec.rb[1:1:3:1] | passed | 0.00605 seconds |
+./spec/units/update_project_status_spec.rb[1:2:1:1] | passed | 0.00587 seconds |

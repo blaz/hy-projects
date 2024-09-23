@@ -1,0 +1,11 @@
+= form_for @project, url: update_status_project_path(@project), method: :post, class: 'mt-5', data: { turbo: true } do |f|
+  .flex.items-start.mb-4
+    .flex.items-center
+      = f.label :status, 'Project Status', class: 'pr-5 text-sm font-medium text-gray-700'
+    .w-48
+      = f.select( \
+        :status, \
+        Project::STATUSES.map { |s| [s.to_s.titleize, s] }, { prompt: 'Update status' }, \
+        class: 'ml-2 mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md', \
+        onChange: 'this.form.requestSubmit()')
+

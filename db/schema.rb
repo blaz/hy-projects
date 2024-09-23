@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_20_104227) do
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "project_status", ["not_started", "in_progress", "pending_completion", "completed"]
+  create_enum "user_role", ["solicitor", "agent", "client"]
 
   create_table "project_comments", force: :cascade do |t|
     t.string "content"
@@ -52,6 +53,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_20_104227) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.enum "role", null: false, enum_type: "user_role"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

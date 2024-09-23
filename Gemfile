@@ -35,6 +35,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'ffaker'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -50,7 +51,16 @@ group :development do
   gem "web-console"
 end
 
+group :test do
+  gem 'database_cleaner-active_record'
+end
+gem "view_component"
+
 
 gem "devise", "~> 4.9"
 
 gem "slim-rails", "~> 3.6"
+
+gem "rspec-rails", "~> 7.0", :group => :test
+
+gem "factory_bot_rails", "~> 6.4", :groups => [:test, :development]
