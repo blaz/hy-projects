@@ -24,7 +24,11 @@
 
 > **PM:** Okay. You have 3 hours.
 
-## Output
+## Demo Website
+
+[https://hm-projects.onrender.com/](https://hm-projects.onrender.com/)
+
+NOTE: It might take a few seconds for the app to spin up, since its on a free plan.
 
 In the demo app there are 3 users with password `password123`. Only the solicitor role can update the project's status.
 
