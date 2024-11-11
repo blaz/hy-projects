@@ -61,6 +61,6 @@ gem "devise", "~> 4.9"
 
 gem "slim-rails", "~> 3.6"
 
-gem "rspec-rails", "~> 7.0", :group => :test
+gem "rspec-rails", "~> 7.1", :group => :test
 
 gem "factory_bot_rails", "~> 6.4", :groups => [:test, :development]
